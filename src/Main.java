@@ -17,26 +17,12 @@ public class Main {
             String choice = scan.nextLine();
             switch (choice) {
                 case "1":
-                    System.out.println("Wpisz długość tablicy: ");
-                    int arraySize = scanner.nextInt();
-                    double[] arr = new double[arraySize];
-                    int max = 70;
-                    int min = 30;
-                    for (int i = 0; i < arr.length; i++) {
-                        arr[i] = Math.random() * (max - min) + min;
-                        
-                    }
+                    double arr[] = random();
                     Sort(arr);
                     break;
                 case "2":
-                    System.out.println("Wpisz dlugosc tablicy: ");
-                    arraySize = scanner.nextInt();
-                    arr = new double[arraySize];
-                    for(int i = 0; i < arr.length;i++){
-                        System.out.println("Wpisz dane do tablicy: ");
-                        arr[i] = scanner.nextInt();
-                    }
-                    Sort(arr);
+                    double arr1[] = write();
+                    Sort(arr1);
                     break;
                 case "0":
                     x = true;
@@ -66,4 +52,32 @@ public class Main {
             }
             return arr;
         }
+        public static double[] random(){
+            System.out.println("Wpisz długość tablicy: ");
+            Scanner scanner = new Scanner(System.in);
+            int arraySize = scanner.nextInt();
+            double[] arr = new double[arraySize];
+            System.out.println("Liczba minimalna: ");
+            int max = scanner.nextInt();
+            System.out.println("Liczba maksymalna: ");
+            int min = scanner.nextInt();;
+            System.out.println("Generowanie tablicy... ");
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = Math.random() * (max - min) + min;
+        }
+            return arr;
+
+    }
+    public static double[] write(){
+        Scanner scanner = new Scanner(System.in);
+        int arraySize = scanner.nextInt();
+        double[] arr = new double[arraySize];
+        for(int i = 0; i < arr.length;i++){
+            System.out.println("Wpisz dane do tablicy: ");
+            arr[i] = scanner.nextInt();
+
+    }
+        return arr;
+
+    }
     }
